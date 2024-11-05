@@ -1,5 +1,5 @@
 
-   <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -13,7 +13,7 @@
       align-items: center;
       height: 100vh;
       margin: 0;
-      background-color: #f0f0f0;
+      background-color: #f7e8f8;
     }
     .container {
       text-align: center;
@@ -42,15 +42,15 @@
 <body>
   <div class="container">
     <h2>Our Anniversary Date</h2>
-    <p>Please enter our anniversary date:</p>
-    <input type="text" id="dateInput" placeholder="e.g., 1 August">
+    <p>Enter our anniversary date to proceed:</p>
+    <input type="text" id="dateInput" placeholder="Enter the date">
     <button onclick="checkAnswer()">Submit</button>
   </div>
 
   <script>
     function checkAnswer() {
-      const answer = document.getElementById("dateInput").value;
-      if (answer.trim().toLowerCase() === "1 august") {
+      const answer = document.getElementById("dateInput").value.trim().toLowerCase();
+      if (answer === "1 august") {
         window.location.href = "second.html";
       } else {
         alert("Sorry, that’s incorrect. Please try again.");
@@ -59,3 +59,4 @@
   </script>
 </body>
 </html>
+
