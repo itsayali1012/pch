@@ -6,8 +6,10 @@
   <title>Anniversary Celebration</title>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <style>
+    /* Body and Background */
     body {
-      background-color: #ffe4e1;
+      background-image: url('https://source.unsplash.com/1600x900/?sunset'); /* A sample sunset image from Unsplash */
+      background-size: cover;
       font-family: Arial, sans-serif;
       display: flex;
       flex-direction: column;
@@ -16,56 +18,171 @@
       height: 100vh;
       margin: 0;
       overflow: hidden;
+      color: #fff;
+      cursor: url('https://img.icons8.com/emoji/24/000000/sparkling-heart.png'), auto; /* Heart cursor */
     }
+
+    /* Title Styling */
     h1 {
       font-family: 'Pacifico', cursive;
       font-size: 60px;
-      color: #ff69b4;
-      text-shadow: 0px 0px 10px rgba(255, 182, 193, 0.7);
+      color: #ffdfba; /* Sunset theme color */
+      text-shadow: 0px 0px 10px rgba(255, 165, 100, 0.8);
       animation: bounce 2s infinite;
     }
+
+    /* Pop-up and Gift Button Styling */
+    .gift-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #ff8c94;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 10px;
+      text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .pop-up {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      color: #333;
+      padding: 20px;
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    .close-btn {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #333;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    /* Keyframes and Animations */
     @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
-    .sticker-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      max-width: 90%;
-      margin-top: 20px;
-    }
-    .sticker {
-      width: 80px;
-      height: 80px;
-      margin: 10px;
-      animation: float 3s infinite ease-in-out;
-    }
-    @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
     }
-    .contact-link {
-      position: fixed;
-      top: 20px;
+
+    @keyframes burst {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.5); opacity: 1; }
+      100% { transform: scale(0); opacity: 0; }
+    }
+
+    /* Text Elements */
+    .text-top-left {
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      font-size: 18px;
+      color: #ffdfba; /* Sunset theme color */
+    }
+
+    .text-top-right {
+      position: absolute;
+      top: 10px;
       right: 20px;
       font-size: 18px;
-      text-decoration: none;
-      color: #ff69b4;
-      font-weight: bold;
+      color: #ffdfba; /* Sunset theme color */
+    }
+
+    /* Random small texts scattered */
+    .random-text {
+      position: absolute;
+      font-size: 14px;
+      color: #ffdfba;
+      opacity: 0.8;
+      font-style: italic;
+    }
+    .random-text1 { top: 30%; left: 15%; }
+    .random-text2 { top: 60%; right: 25%; }
+    .random-text3 { bottom: 20%; left: 40%; }
+    .random-text4 { top: 50%; left: 70%; }
+    .random-text5 { bottom: 30%; right: 30%; }
+
+    /* Heart Cursor Styling */
+    .heart-cursor {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background-image: url('https://img.icons8.com/emoji/48/000000/red-heart.png');
+      background-size: cover;
+      pointer-events: none;
+      transition: transform 0.5s;
+    }
+
+    /* Heart Burst Animation */
+    .bursting-heart {
+      animation: burst 1s forwards;
     }
   </style>
 </head>
 <body>
-  <a href="contact.html" class="contact-link">Contact</a>
   <h1>Atharva</h1>
-  <div class="sticker-container">
-    <img src="https://img.icons8.com/emoji/80/heart-with-arrow.png" alt="Heart Sticker" class="sticker">
-    <img src="https://img.icons8.com/emoji/80/sparkling-heart.png" alt="Sparkling Heart" class="sticker">
-    <img src="https://img.icons8.com/emoji/80/two-hearts.png" alt="Two Hearts" class="sticker">
-    <img src="https://img.icons8.com/emoji/80/heart-decoration.png" alt="Heart Decoration" class="sticker">
-    <!-- Add more sticker links as desired -->
+  
+  <!-- Top Text Elements -->
+  <div class="text-top-left">ukilusm</div>
+  <div class="text-top-right">best boyfriend (ex shusshhhhh) ever, blessed ass</div>
+
+  <!-- Random Text Elements -->
+  <div class="random-text random-text1">I'm sorry to hurt you, I try my best to love you how you wanna be loved</div>
+  <div class="random-text random-text2">will you be my boyfriend?</div>
+  <div class="random-text random-text3">pookie</div>
+  <div class="random-text random-text4">you're my sunshine</div>
+  <div class="random-text random-text5">forever & always</div>
+
+  <!-- Gift Button -->
+  <button class="gift-button" onclick="showPopup()">🎁 Open Gift</button>
+
+  <!-- Pop-up Modal -->
+  <div class="pop-up" id="popup">
+    <p id="popup-message">[Your gift message here]</p> <!-- Replace with actual message later -->
+    <button class="close-btn" onclick="closePopup()">Close</button>
   </div>
+
+  <!-- Heart Cursor Element -->
+  <div class="heart-cursor" id="heartCursor"></div>
+
+  <script>
+    // Gift Button Pop-up
+    function showPopup() {
+      document.getElementById('popup').style.display = 'block';
+    }
+
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+
+    // Heart Cursor Feature
+    let timeout;
+    const heartCursor = document.getElementById('heartCursor');
+    
+    document.addEventListener('mousemove', (e) => {
+      heartCursor.style.left = `${e.pageX}px`;
+      heartCursor.style.top = `${e.pageY}px`;
+      heartCursor.classList.remove('bursting-heart');
+      
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        heartCursor.classList.add('bursting-heart');
+      }, 1500); // 1.5 seconds to start bursting animation if cursor is still
+    });
+  </script>
 </body>
 </html>
 
