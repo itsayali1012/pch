@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Anniversary Celebration</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <style>
     body {
       background-color: #ffe4e1;
@@ -17,9 +18,10 @@
       overflow: hidden;
     }
     h1 {
+      font-family: 'Pacifico', cursive;
       font-size: 60px;
       color: #ff69b4;
-      text-shadow: 0px 0px 10px rgba(255, 182, 193, 0.5);
+      text-shadow: 0px 0px 10px rgba(255, 182, 193, 0.7);
       animation: bounce 2s infinite;
     }
     @keyframes bounce {
@@ -31,17 +33,17 @@
       flex-wrap: wrap;
       justify-content: center;
       max-width: 90%;
-      margin: 20px;
+      margin-top: 20px;
     }
     .sticker {
-      width: 100px;
-      height: 100px;
+      width: 80px;
+      height: 80px;
       margin: 10px;
-      animation: rotate 3s infinite;
+      animation: float 3s infinite ease-in-out;
     }
-    @keyframes rotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
     .contact-link {
       position: fixed;
@@ -50,6 +52,7 @@
       font-size: 18px;
       text-decoration: none;
       color: #ff69b4;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -57,10 +60,11 @@
   <a href="contact.html" class="contact-link">Contact</a>
   <h1>Atharva</h1>
   <div class="sticker-container">
-    <img src="sticker1.png" alt="Love Sticker" class="sticker">
-    <img src="sticker2.png" alt="Heart Sticker" class="sticker">
-    <img src="sticker3.png" alt="Cute Sticker" class="sticker">
-    <!-- Add more stickers as needed -->
+    <img src="https://img.icons8.com/emoji/80/heart-with-arrow.png" alt="Heart Sticker" class="sticker">
+    <img src="https://img.icons8.com/emoji/80/sparkling-heart.png" alt="Sparkling Heart" class="sticker">
+    <img src="https://img.icons8.com/emoji/80/two-hearts.png" alt="Two Hearts" class="sticker">
+    <img src="https://img.icons8.com/emoji/80/heart-decoration.png" alt="Heart Decoration" class="sticker">
+    <!-- Add more sticker links as desired -->
   </div>
 </body>
 </html>
