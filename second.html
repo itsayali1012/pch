@@ -4,71 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Anniversary Celebration</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@300&display=swap" rel="stylesheet">
   <style>
     body {
-      background-image: url('https://source.unsplash.com/1600x900/?sunset');
-      background-size: cover;
-      font-family: Arial, sans-serif;
-      overflow: hidden;
       margin: 0;
-      color: #fff;
-      position: relative;
+      overflow: hidden;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to bottom, #ff7e5f, #feb47b);
     }
 
     h1 {
       font-family: 'Pacifico', cursive;
       font-size: 80px;
-      color: #ffdfba; /* Sunset theme color */
+      color: #ffffff;
       text-align: center;
-      text-shadow: 0 0 20px rgba(255, 165, 100, 0.9);
       margin-top: 50px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
 
     .gift-button {
-      position: absolute;
-      top: 70%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #ff8c94;
+      display: block;
+      margin: 50px auto;
+      padding: 15px 30px;
+      font-size: 24px;
+      cursor: pointer;
+      background-color: #ff4c4c;
       border: none;
       color: white;
-      padding: 10px 20px;
-      font-size: 20px;
-      cursor: pointer;
       border-radius: 10px;
-      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-      transition: background-color 0.3s;
+      transition: background-color 0.3s, transform 0.3s;
     }
 
     .gift-button:hover {
-      background-color: #ff6f7f;
-    }
-
-    /* Pop-up Modal */
-    .pop-up {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #fff;
-      color: #333;
-      padding: 20px;
-      width: 300px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      text-align: center;
-    }
-
-    .close-btn {
-      margin-top: 10px;
-      padding: 8px 16px;
-      background-color: #333;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
+      background-color: #ff3232;
+      transform: scale(1.05);
     }
 
     /* Heart Burst Effect */
@@ -88,6 +57,42 @@
       100% { transform: scale(0); opacity: 0; }
     }
 
+    /* Contact Form */
+    .contact-form {
+      display: none; /* Initially hidden */
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      color: black;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 300px;
+      z-index: 10;
+    }
+
+    input, textarea {
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 100%;
+    }
+
+    .close-btn {
+      padding: 8px 16px;
+      background-color: #333;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .close-btn:hover {
+      background-color: #555;
+    }
   </style>
 </head>
 <body>
@@ -95,22 +100,17 @@
 
   <button class="gift-button" onclick="showPopup()">🎁 Open Gift</button>
 
-  <!-- Pop-up Modal -->
-  <div class="pop-up" id="popup">
-    <p id="popup-message">[Your gift message here]</p> <!-- Replace with actual message later -->
+  <!-- Pop-up Modal for Contact Form -->
+  <div class="contact-form" id="contactForm">
+    <h2>Contact Me</h2>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea placeholder="Your Message" required></textarea>
+    <button class="close-btn" onclick="submitContact()">Submit</button>
     <button class="close-btn" onclick="closePopup()">Close</button>
   </div>
 
   <script>
-    // Gift Button Pop-up
-    function showPopup() {
-      document.getElementById('popup').style.display = 'block';
-    }
-
-    function closePopup() {
-      document.getElementById('popup').style.display = 'none';
-    }
-
     // Heart Burst Effect on Click
     document.body.addEventListener('click', function (e) {
       createHeart(e.pageX, e.pageY);
@@ -127,6 +127,19 @@
       heart.addEventListener('animationend', () => {
         heart.remove();
       });
+    }
+
+    function showPopup() {
+      document.getElementById('contactForm').style.display = 'block';
+    }
+
+    function closePopup() {
+      document.getElementById('contactForm').style.display = 'none';
+    }
+
+    function submitContact() {
+      alert("Your message has been sent!"); // Placeholder for actual submission logic
+      closePopup();
     }
   </script>
 </body>
