@@ -1,86 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anniversary Celebration</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      overflow: hidden;
-      font-family: 'Pacifico', cursive;
-      background: linear-gradient(to bottom, #ff7e5f, #feb47b);
-      color: #fff;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      transition: opacity 0.5s ease-in-out;
-    }
-
-    .question {
-      font-size: 2em;
-    }
-
-    input[type="date"] {
-      padding: 10px;
-      font-size: 18px;
-      border: none;
-      border-radius: 5px;
-      margin: 20px 0;
-      width: 250px;
-    }
-
-    .answer {
-      padding: 15px 30px;
-      font-size: 20px;
-      cursor: pointer;
-      background-color: #ff4c4c;
-      border: none;
-      color: white;
-      border-radius: 5px;
-      transition: background-color 0.3s, transform 0.3s;
-    }
-
-    .answer:hover {
-      background-color: #ff3232;
-      transform: scale(1.05);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anniversary Question</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #D8BFD8;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.7);
+        }
+        .question {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        input[type="date"] {
+            font-size: 1em;
+            padding: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #8B008B;
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #5A005A;
+        }
+    </style>
 </head>
 <body>
-  <div>
-    <h1 class="neon-text">Happy Anniversary!</h1>
-    <div class="question">What is our anniversary date?</div>
-    <input type="date" id="anniversaryDate" required>
-    <button class="answer" onclick="checkAnswer()">Submit</button>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.min.js"></script>
-  <script>
-    function launchConfetti() {
-      confetti({
-        particleCount: 200,
-        spread: 70,
-        origin: { y: 0.6 }
-      });
-    }
+    <div class="container">
+        <div class="question">What is our anniversary date?</div>
+        <input type="date" id="anniversaryDate" />
+        <button onclick="checkDate()">Submit</button>
+    </div>
 
-    window.onload = launchConfetti;
-
-    function checkAnswer() {
-      const selectedDate = new Date(document.getElementById('anniversaryDate').value);
-      const correctDate = new Date('2024-08-01'); // Set your date here
-
-      if (selectedDate.getTime() === correctDate.getTime()) {
-        window.location.href = "second.html";
-      } else {
-        alert("That's not correct. Please try again!");
-      }
-    }
-  </script>
+    <script>
+        function checkDate() {
+            const correctDate = "2024-08-01"; // Replace with your correct date
+            const userDate = document.getElementById("anniversaryDate").value;
+            if (userDate === correctDate) {
+                window.location.href = "second.html";
+            } else {
+                alert("Incorrect date. Try again!");
+            }
+        }
+    </script>
 </body>
 </html>
