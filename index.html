@@ -4,36 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Anniversary Celebration</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       overflow: hidden;
-      font-family: 'Roboto', sans-serif;
-    }
-
-    .container {
-      position: relative;
-      height: 100vh;
+      font-family: 'Pacifico', cursive;
+      background: linear-gradient(to bottom, #ff7e5f, #feb47b);
+      color: #fff;
+      text-align: center;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      color: #ffffff;
-      text-align: center;
-      background: linear-gradient(to bottom, #ff7e5f, #feb47b);
-    }
-
-    h1 {
-      font-family: 'Pacifico', cursive;
-      font-size: 60px;
-      margin: 0;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      height: 100vh;
+      transition: opacity 0.5s ease-in-out;
     }
 
     .question {
-      font-size: 24px;
-      margin: 20px 0;
+      font-size: 2em;
     }
 
     input[type="date"] {
@@ -43,7 +32,6 @@
       border-radius: 5px;
       margin: 20px 0;
       width: 250px;
-      outline: none;
     }
 
     .answer {
@@ -61,43 +49,38 @@
       background-color: #ff3232;
       transform: scale(1.05);
     }
-
-    .particles-js {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    }
   </style>
 </head>
 <body>
-  <div class="particles-js"></div>
-  <div class="container">
-    <h1>Happy Anniversary!</h1>
+  <div>
+    <h1 class="neon-text">Happy Anniversary!</h1>
     <div class="question">What is our anniversary date?</div>
     <input type="date" id="anniversaryDate" required>
     <button class="answer" onclick="checkAnswer()">Submit</button>
   </div>
-
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.min.js"></script>
   <script>
-    particlesJS.load('particles-js', 'https://cdn.rawgit.com/VincentGarreau/particles.js/master/demo/js/particles.json', function() {
-      console.log('callback - particles.js config loaded');
-    });
+    function launchConfetti() {
+      confetti({
+        particleCount: 200,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+    }
+
+    window.onload = launchConfetti;
 
     function checkAnswer() {
       const selectedDate = new Date(document.getElementById('anniversaryDate').value);
-      const correctDate = new Date('2024-08-01'); // Set the correct date here
+      const correctDate = new Date('2024-08-01'); // Set your date here
 
       if (selectedDate.getTime() === correctDate.getTime()) {
-        window.location.href = "second.html"; // Redirect to second page
+        window.location.href = "second.html";
       } else {
-        alert("Sorry, that's not correct! Please try again.");
+        alert("That's not correct. Please try again!");
       }
     }
   </script>
 </body>
 </html>
-
