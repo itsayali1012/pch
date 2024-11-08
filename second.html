@@ -57,4 +57,86 @@
       position: fixed;
       top: 50%;
       left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+    }
+
+    input, textarea {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .close-btn {
+      padding: 8px 16px;
+      background-color: #333;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .close-btn:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+ <!--  <source src="background-music.mp3" type="audio/mp3">   -->
+  </audio>
+
+  <h1>Atharva</h1>
+  <h2 class="neon-text">"ukilusm"</h2>
+  <div class="sub-text">Best boyfriend (ex shusshhhhh) ever, blessed ass</div>
+  <div class="sub-text">I'm sorry to hurt you, I try my best to love you how you wanna be loved</div>
+  <div class="sub-text">Will you be my boyfriend?</div>
+  <div class="sub-text">pookie</div>
+
+  <button class="gift-button" onclick="showContactForm()">🎁 Click for a Gift</button>
+
+  <!-- Contact Form Popup -->
+  <div class="contact-form" id="contactForm">
+    <h2>Contact Me</h2>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea placeholder="Your Message" required></textarea>
+    <button class="close-btn" onclick="submitForm()">Submit</button>
+    <button class="close-btn" onclick="closeContactForm()">Close</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.min.js"></script>
+  <script>
+    function launchConfetti() {
+      confetti({
+        particleCount: 200,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+    }
+
+    window.onload = launchConfetti;
+
+    function showContactForm() {
+      document.getElementById('contactForm').style.display = 'block';
+    }
+
+    function closeContactForm() {
+      document.getElementById('contactForm').style.display = 'none';
+    }
+
+    function submitForm() {
+      alert("Thank you for your message!");
+      closeContactForm();
+    }
+  </script>
+</body>
+</html>
+
 
