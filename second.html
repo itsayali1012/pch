@@ -1,142 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anniversary Celebration</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      overflow: hidden;
-      background: url('sunset-image.jpg') no-repeat center center fixed;
-      background-size: cover;
-      font-family: 'Pacifico', cursive;
-      color: #fff;
-      transition: opacity 0.5s ease-in-out;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 5em;
-      margin-top: 20px;
-      color: #FF69B4;
-      text-shadow: 0 0 5px rgba(255, 105, 180, 0.8), 0 0 10px rgba(255, 105, 180, 0.6);
-    }
-
-    .neon-text {
-      font-size: 3em;
-      text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4, 0 0 30px #ff69b4;
-    }
-
-    .sub-text {
-      font-size: 1.5em;
-      color: #fff5f5;
-      margin: 10px;
-      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
-    }
-
-    .gift-button {
-      padding: 15px 30px;
-      font-size: 24px;
-      cursor: pointer;
-      background-color: #ff4c4c;
-      border: none;
-      color: white;
-      border-radius: 10px;
-      transition: background-color 0.3s, transform 0.3s;
-    }
-
-    .gift-button:hover {
-      background-color: #ff3232;
-      transform: scale(1.05);
-    }
-
-    .contact-form {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: white;
-      padding: 20px;
-      border-radius: 10px;
-      width: 300px;
-    }
-
-    input, textarea {
-      display: block;
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-
-    .close-btn {
-      padding: 8px 16px;
-      background-color: #333;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-
-    .close-btn:hover {
-      background-color: #555;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anniversary Surprise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #FFB6C1;
+            font-family: 'Pacifico', cursive;
+            color: #4B0082;
+            text-align: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+        h1 {
+            font-size: 5em;
+            margin-top: 20px;
+        }
+        .phrase {
+            position: absolute;
+            font-size: 1.2em;
+            color: #ff69b4;
+            opacity: 0.9;
+        }
+        .gift-button {
+            padding: 15px 30px;
+            font-size: 24px;
+            background-color: #ff4c4c;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: transform 0.3s;
+        }
+        .gift-button:hover {
+            transform: scale(1.1);
+        }
+        #popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            color: #333;
+        }
+        #popup p {
+            font-size: 1.2em;
+            color: #555;
+        }
+        #close-btn {
+            margin-top: 10px;
+            padding: 8px 16px;
+            border: none;
+            background-color: #ff69b4;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-  <audio autoplay loop>
- <!--  <source src="background-music.mp3" type="audio/mp3">   -->
-  </audio>
+    <h1>Atharva</h1>
+    <button class="gift-button" onclick="showPopup()">🎁 Open Gift</button>
 
-  <h1>Atharva</h1>
-  <h2 class="neon-text">"ukilusm"</h2>
-  <div class="sub-text">Best boyfriend (ex shusshhhhh) ever, blessed ass</div>
-  <div class="sub-text">I'm sorry to hurt you, I try my best to love you how you wanna be loved</div>
-  <div class="sub-text">Will you be my boyfriend?</div>
-  <div class="sub-text">pookie</div>
+    <div id="popup">
+        <p>Here's a special message just for you: "You mean the world to me!"</p>
+        <button id="close-btn" onclick="closePopup()">Close</button>
+    </div>
 
-  <button class="gift-button" onclick="showContactForm()">🎁 Click for a Gift</button>
+    <!-- Heart Confetti Effect -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.min.js"></script>
+    <script>
+        // Random text phrases scattered on the page
+        const phrases = [
+            "Best boyfriend ever",
+            "Will you be my boyfriend?",
+            "ukilusm",
+            "I'm sorry to hurt you",
+            "Pookie",
+            "Blessed ass",
+          "you are it for me baby"'
+      "I'll handle all your nakhras, dw",
+      "My bestfriend",
+      "My lover",
+      "Prettiest BF"
+        ];
 
-  <!-- Contact Form Popup -->
-  <div class="contact-form" id="contactForm">
-    <h2>Contact Me</h2>
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Your Email" required>
-    <textarea placeholder="Your Message" required></textarea>
-    <button class="close-btn" onclick="submitForm()">Submit</button>
-    <button class="close-btn" onclick="closeContactForm()">Close</button>
-  </div>
+        // Place phrases randomly on the page
+        phrases.forEach(text => {
+            const span = document.createElement('div');
+            span.className = 'phrase';
+            span.textContent = text;
+            span.style.left = `${Math.random() * 90}vw`;
+            span.style.top = `${Math.random() * 80}vh`;
+            document.body.appendChild(span);
+        });
 
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.min.js"></script>
-  <script>
-    function launchConfetti() {
-      confetti({
-        particleCount: 200,
-        spread: 70,
-        origin: { y: 0.6 }
-      });
-    }
+        // Heart confetti effect
+        function launchConfetti() {
+            const duration = 2 * 1000;
+            const end = Date.now() + duration;
 
-    window.onload = launchConfetti;
+            (function frame() {
+                confetti({
+                    particleCount: 5,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    shapes: ['heart']
+                });
+                confetti({
+                    particleCount: 5,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    shapes: ['heart']
+                });
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+        }
 
-    function showContactForm() {
-      document.getElementById('contactForm').style.display = 'block';
-    }
+        // Show popup message on button click
+        function showPopup() {
+            document.getElementById("popup").style.display = "block";
+            launchConfetti();
+        }
 
-    function closeContactForm() {
-      document.getElementById('contactForm').style.display = 'none';
-    }
+        // Close popup
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
 
-    function submitForm() {
-      alert("Thank you for your message!");
-      closeContactForm();
-    }
-  </script>
+        // Heart cursor effect
+        document.body.style.cursor = "url('https://www.example.com/heart-cursor.png'), auto";
+    </script>
 </body>
 </html>
-
-
